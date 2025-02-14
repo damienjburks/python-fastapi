@@ -1,6 +1,6 @@
 # Python FastAPI
 
-This project sets up a simple FastAPI application (with some vulnerabilites) within a Docker container. It uses the official Python runtime and includes all necessary configurations to deploy a FastAPI app with Docker. The container will expose the app on port 80 and automatically run the FastAPI app on startup.
+This project sets up a simple FastAPI application (with some vulnerabilites) within a Docker container. It uses the official Python runtime and includes all necessary configurations to deploy a FastAPI app with Docker. The container will expose the app on port 8080 and automatically run the FastAPI app on startup.
 
 ## Requirements
 
@@ -18,7 +18,7 @@ This project sets up a simple FastAPI application (with some vulnerabilites) wit
 ## Project Structure
 
 ```bash
-gcp-python-fastapi/
+python-fastapi/
 ├── Dockerfile
 ├── requirements.txt
 ├── main.py  # FastAPI app entry point
@@ -36,8 +36,8 @@ gcp-python-fastapi/
 If you haven't cloned the project yet, use the following command:
 
 ```bash
-git clone https://github.com/your-username/awesome-fastapi.git
-cd awesome-fastapi
+git clone https://github.com/your-username/python-fastapi.git
+cd python-fastapi
 ```
 
 ### 2. Build the Docker image
@@ -45,7 +45,7 @@ cd awesome-fastapi
 To build the Docker image, run the following command in the root of the project directory:
 
 ```bash
-docker build -t awesome-fastapi .
+docker build -t python-fastapi .
 ```
 
 ### 3. Run the Docker container
@@ -53,17 +53,17 @@ docker build -t awesome-fastapi .
 After the image is built, run the container:
 
 ```bash
-docker run -d -p 80:80 awesome-fastapi
+docker run -d -p 8080:8080 python-fastapi
 ```
 
-This command will run the FastAPI app on port 80 of your localhost.
+This command will run the FastAPI app on port 8080 of your localhost.
 
 ### 4. Access the app
 
 Once the container is running, you can access the FastAPI application by navigating to:
 
 ```
-http://localhost:80
+http://localhost:8080
 ```
 
 ## Dependencies
@@ -81,5 +81,5 @@ pip install -r requirements.txt
 
 ## Notes
 
-- This setup assumes that your FastAPI app’s entry point is `main.py`, and the FastAPI application instance is named `app`. If your app is structured differently, you may need to modify the `CMD` directive in the Dockerfile accordingly.
-- The container will expose the application on port 80. If you want to use a different port, adjust the `EXPOSE` and `CMD` directives in the Dockerfile.
+- This setup assumes that your FastAPI app’s entry point is `main.py`, and the FastAPI application instance is named `app`. If your app is structured differently, you may need to modify the `EXPOSE` directive in the Dockerfile accordingly.
+- The container will expose the application on port 8080. If you want to use a different port, adjust the `EXPOSE` and `CMD` directives in the Dockerfile.
